@@ -3,17 +3,18 @@ import { getExpirationTime, generateId } from "./utils/utilities";
 import { useState } from "react";
 import AddThought from "../src/components/AddThought";
 import Thought from "../src/components/Thought";
+import { Wrapper, Header } from "./components/App.style";
 
 function App() {
   const [thoughts, setThoughts] = useState([
     {
       id: generateId(),
-      text: "This is id 1",
+      text: "Thoughts are things. They travel far. Think wisely.",
       expiresAt: getExpirationTime(),
     },
     {
       id: generateId(),
-      text: "This is id 2",
+      text: "What you think is you become. You are the hero of your own.",
       expiresAt: getExpirationTime(),
     },
   ]);
@@ -27,12 +28,12 @@ function App() {
       thoughts.filter((thought) => thought.id !== thoughtIdToRemove)
     );
   };
-  
+
   return (
-    <div>
-      <header>
+    <Wrapper>
+      <Header>
         <h1>Passing Thought</h1>
-      </header>
+      </Header>
       <AddThought addThought={addThought} />
       <ul>
         {thoughts.map((thought) => (
@@ -43,7 +44,7 @@ function App() {
           />
         ))}
       </ul>
-    </div>
+    </Wrapper>
   );
 }
 

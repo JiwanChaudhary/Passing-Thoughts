@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { getExpirationTime, generateId } from "../utils/utilities";
+import { Form } from "./AddThought.style";
 
 const AddThoughtForm = ({ addThought }) => {
   const [text, setText] = useState("");
-  
+
   function handleChange(e) {
     setText(e.target.value);
   }
@@ -16,7 +17,7 @@ const AddThoughtForm = ({ addThought }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="What is on your mind?"
@@ -25,7 +26,7 @@ const AddThoughtForm = ({ addThought }) => {
         aria-label = "What is on your mind?"
       />
       <input type="submit" value="Add" />
-    </form>
+    </Form>
   );
 };
 
